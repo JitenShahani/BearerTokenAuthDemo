@@ -1,0 +1,94 @@
+@HostAddress = https://localhost:7031
+@AccessToken = CfDJ8Mow6tBau5xOiY-o5Esr75b-TwTPW7HPxu_nBUkio_3efMoWHaSGK6TxItIcr9FRAcYDPDZaTy-dPvQu9Cr2VvVX2BnR-Zbz133G_mgPoUIlkCEYX1BZffgJpf14MoRVxuS8I-FIQ7JQCVkspUNF2kRZHpBCONWa2TQ0URfohIvwcgTNlYaubFWwSC_-Sqhk2W-_l6KLQwpHGLKCia0HpLtrSZ2Ppxbcjf2u9jdJIRsCbYQdyuKskii8cbf83Vg08mGomu7cc4v2GrZEX-s0MfAMqmPtbSfNyM8gP-wiyeqzzKKEC0nkD3DhYjjTfF1dlzHJrt6Lw4O82RCunUcldyoCpFJ2YRuPbGnI2Ks3gPOlx7BSQe8oqwuYC7VuUWQm2-k5hxpUT5MWnHIXWWp2CbSXSVQMl2N5RJooX90-KlVZeLb68Nb8HJ-K2bVmMtdSk13I3KM5WEJZUIgcWSaiSaHkYLs-XsJLG3FaP7DCZc-5uICXbCJzA3mV05bctymxqmM_PyJ4aD7VRC6aCGUsZt0fJcpZu_pCxXAgB37e-XyMaz63GqmVNR4IXG8M-QJwA3LQo1t8z4AqCp-YLLcU_Jym9uY12lpX4v74WB2kkv6FZ2s7SIzjVaUPkIEmi2kw0T6lwDEX4K5fzutvTCl8ORtzJCO6zIeE8Ozkhv-mB7g6DVNpVcTlcQxVGSHW41OmUc48K94GN9OndVsPOuOhNQhAhLtEZZkXxbx7kVlkcbHEAZ-6cvrtbQRibFj5rumBqpf1yRnB-bW3iH3UW3SrjLKn7UboaHZPEb5Kfthywn3m
+@RefreshToken = CfDJ8Mow6tBau5xOiY-o5Esr75YeMirLpBJlciwFiDKB0O763pyZE9g9KiQOGnuywYjDvCoy1j5br2TqMJ2yPb6c0zMXo6Z3a8zysswk7tOXb9KTvLN6MwCIDJ5nZ3rDJFU6voUoa64wT7hKxVAy-boYeqW0aF7C3pJXX0eRn7OEIh5aGl7dXR9QgB1fsUmMcaxP9UM_J5vpbwTLf6nl5xZ3IPHEBA_s-xcsom6SR1xuSBUYkO8fW5rmNkjZjHB3JqK4WhlrSkFzapEzF0hn8OWlCq6aBPtjMUpjfP_0VAGMjxcKvMZoj5lWb75eDnT8MaLIsZFxkAioS3U4WkfV3JRdFHigDag8weiolmo2Pkk_hkigRT3ZwAQo6DE343i-px4iZbk5wSvnqT7yK3IE0ZNuQW1KaFd3thSHo9MY7xv3e-_aeIiuTwIWltWggbRZtEIpRRMMBGRjWllB8cxCQsBNkoKafkkOUlFDPEdt_HZgZx5HUFlpRnRvwRYGyvE8T8TysCGmrQ2TgBVHVtL-D0T7FuUR_trWndi95d6CJvYZR_JGExaQS6C_Z4iwmEQ_YUSpO1LOQwQ60Ww7uydCQ0w81kLcAbk9BT4TZzPnPzCpD2fL4q4ftdl2DenmAeSUgC0fXTJVUA8MldVeSC0cyqNmtHBEyFMy1VYdmJb02ER5VThK919JVD7jmOeNCw_-wIpvxbdWVC0Dx83g2VnlVfK9tMkYQz8yr-5XGZzMxnZcvtI1R9C5wbIrL6Wf-7SNJa8sJV7avZbeNrNKi_92Yk3bi3IsVPtRZ0tbwp8KSRc5qJjk
+
+POST {{HostAddress}}/api/Account/login
+Content-Type: application/json
+
+{
+    "email": "admin@example.com",
+    "password": "Admin!123",
+    "twoFactorCode": null,
+    "twoFactorRecoveryCode": null
+}
+
+###
+
+POST {{HostAddress}}/api/Account/login
+Content-Type: application/json
+
+{
+    "email": "jiten@example.com",
+    "password": "User!123",
+    "twoFactorCode": null,
+    "twoFactorRecoveryCode": null
+}
+
+###
+
+POST {{HostAddress}}/api/Account/refresh
+Content-Type: application/json
+
+{
+	"refreshToken": "{{RefreshToken}}"
+}
+
+###
+
+GET {{HostAddress}}/api/Account/manage/info/
+Context-Type: none
+Authorization: Bearer {{AccessToken}}
+
+###
+
+GET {{HostAddress}}/getToken
+Content-Type: none
+Authorization: Bearer {{AccessToken}}
+
+###
+
+GET {{HostAddress}}/authRequired
+Content-Type: none
+Authorization: Bearer {{AccessToken}}
+
+###
+
+GET {{HostAddress}}/Admin
+Content-Type: none
+Authorization: Bearer {{AccessToken}}
+
+###
+
+POST {{HostAddress}}/form-input
+Content-Type: multipart/form-data; boundary=formProperty
+Authorization: Bearer {{AccessToken}}
+
+--formProperty
+Content-Disposition: form-data; name="ShirtId"
+
+1
+--formProperty
+Content-Disposition: form-data; name="Brand"
+
+My Brand
+--formProperty
+Content-Disposition: form-data; name="Size"
+
+M
+--formProperty
+Content-Disposition: form-data; name="Color"
+
+Blue
+--formProperty
+Content-Disposition: form-data; name="Price"
+
+19.99
+--formProperty--
+
+###
+
+GET {{HostAddress}}/weatherforecast
+Content-Type: none
+Authorization: Bearer {{AccessToken}}
+
+###
