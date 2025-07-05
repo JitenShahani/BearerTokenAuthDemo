@@ -96,7 +96,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 Logs detailed authentication & authorization flows and enables EF Core diagnostics.
 
 > ⚠️ This EF Core setup is tailored for debugging in development environments.
-> Avoid using these options in production. Refer to [Development-Only Configuration Warnings](#development-only-configuration-warnings) for details.
+> Avoid using these options in production. Refer to [⚠️ Development-Only Configuration Warnings](#%EF%B8%8F-development-only-configuration-warnings) for details.
 
 ### 🔐 Identity & BearerToken Settings
 
@@ -737,7 +737,7 @@ It supports:
 
 ### 🔧 Configuration Snippet (Program.cs)
 
-Refer to [📘 Configuring OpenAPI](#configuring-openapi) to see how I have setup the OpenAPI documentation.
+Refer to [📘 Configuring OpenAPI](#-configuring-openapi) to see how I have setup the OpenAPI documentation.
 
 ```csharp
 // ✅ Register OpenAPI support
