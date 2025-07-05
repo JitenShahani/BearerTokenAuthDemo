@@ -20,16 +20,16 @@ The project combines this with minimal APIs and follows modern .NET practices fo
 ```
 BearerTokenAuthDemo/
 	├── Data/
-	│   └── AppDbContext.cs					# EF Core DbContext with Identity
+	│   └── AppDbContext.cs			# EF Core DbContext with Identity
 	├── DTO/
-	│   └── Shirt.cs					# DTO for form-data binding
-	│   └── WeatherForecast.cs				# DTO for weather forecast response
-	├── Endpoints.cs					# Minimal API endpoints and route groups
-	├── GlobalUsings.cs					# Global using directives
-	├── IdentityDemo.db					# SQLite database file (Identity)
-	├── Program.cs						# Main entry point, DI, and app setup
-	├── Requests.http					# HTTP request samples for testing endpoints
-	├── RolesAndUserConfig.cs				# Seeding logic
+	│   └── Shirt.cs			# DTO for form-data binding
+	│   └── WeatherForecast.cs		# DTO for weather forecast response
+	├── Endpoints.cs			# Minimal API endpoints and route groups
+	├── GlobalUsings.cs			# Global using directives
+	├── IdentityDemo.db			# SQLite database file (Identity)
+	├── Program.cs				# Main entry point, DI, and app setup
+	├── Requests.http			# HTTP request samples for testing endpoints
+	├── RolesAndUserConfig.cs		# Seeding logic
 ```
 
 ## ⚠️ Development-Only Configuration Warnings
@@ -322,12 +322,12 @@ This setup is ideal for internal APIs or secured development environments but sh
 
 ```csharp
 app
-    .MapGroup("/api/Account")				// Groups identity endpoints under a common prefix
-    .MapIdentityApi<IdentityUser>()			// Registers built-in Identity endpoints
-    .WithOpenApi()					// Includes in OpenAPI spec
-    .WithTags("Auth")					// Visible under the "Auth" group in Scalar UI
+    .MapGroup("/api/Account")		// Groups identity endpoints under a common prefix
+    .MapIdentityApi<IdentityUser>()	// Registers built-in Identity endpoints
+    .WithOpenApi()			// Includes in OpenAPI spec
+    .WithTags("Auth")			// Visible under the "Auth" group in Scalar UI
     .WithDescription("Endpoints for managing user accounts, including registration, login, and profile management.")
-    .AllowAnonymous();					// Allows public access to initial auth endpoints
+    .AllowAnonymous();			// Allows public access to initial auth endpoints
 ```
 
 🧠 **Purpose**: This single mapping exposes the full suite of Identity-based authentication and account management APIs automatically. These endpoints support secure workflows out of the box and integrate seamlessly with Bearer token validation. They're tagged "Auth" for OpenAPI clarity and discoverability in Scalar UI.
