@@ -769,7 +769,7 @@ if (app.Environment.IsDevelopment())
             PreferredSecuritySchemes = [ IdentityConstants.BearerScheme ]
         };
     })
-    .AllowAnonymous();
+    	.AllowAnonymous();
 }
 ```
 
@@ -826,7 +826,7 @@ This ensures that:
 
 ⚙️ Endpoint logic executes
 
-    Example: `/greet?name=Jiten`
+   	Example: `/greet?name=Jiten`
 
 	Response JSON:
 	{
